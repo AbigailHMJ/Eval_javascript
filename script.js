@@ -9,8 +9,13 @@ console.table(produits)
 
 // DEFINITION DES VARIABLES
 const products = document.getElementById("produits-container");
-const panier = document.getElementById("panier-liste")
+const panier = document.getElementById("panier-liste");
+const btnOrder = document.getElementById("btn-commander");
+const email = document.getElementById("email-client");
+const total = document.getElementById("montant-total");
 
+// AFFICHAGE DES MESSAGES D'ERREUR
+const emailError = document.getElementById("message-feedback");
 
 // AFFICHAGE DES CARTES PRODUITS
 function productDisplay(listeProduits) {
@@ -37,6 +42,11 @@ function productDisplay(listeProduits) {
         const h3 = document.createElement("h3");
         h3.textContent = produit.nom;
 
+        // Ajout d'un bouton pour ajouter le produit au panier
+        const btnAdd = document.createElement("button");
+        btnAdd.textContent = "Ajouter au panier";
+        btnAdd.classList.add("btn-add")
+
         // Affichage du prix de chaque produit
         const price = document.createElement("p");
         price.textContent = produit.prix + "€";
@@ -44,6 +54,7 @@ function productDisplay(listeProduits) {
         // Assemblage et affichage dans le DOM
         divText.appendChild(h3);
         divText.appendChild(price);
+        divText.appendChild(btnAdd);
 
         card.appendChild(img);
         card.appendChild(divText);
@@ -55,3 +66,31 @@ function productDisplay(listeProduits) {
 };
 
 productDisplay(produits)
+
+// EVENEMENTS SUR LE BOUTON DE COMMANDE
+btnOrder.addEventListener("click", function(event){
+ let isValid = true;
+ console.log(btnOrder)
+
+//  Réinitialisation des messages d'erreurs
+emailError.innerText = "";
+
+// Vérification mail avec regexp
+let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+if (!email.value.match(emailPattern)){
+    emailError.innerText = "Veuillez entrer une adresse email valide.";
+    emailError.classList.add("mail__error");
+    isValid = false;
+}
+
+// Empêche la validation si un des champs est incorrectement rempli
+if (!isValid){
+    event.preventDefault();
+}
+});
+
+// Ajoute la possibilité de valider l'input avec la touche entrée
+email.addEventListener("keypress", (e) =>{
+    if(e.key === "Enter") btnOrder.click()
+});
+

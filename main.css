@@ -55,6 +55,15 @@ p{
     padding:10px;
 }
 
+.btn-add{
+    margin:0px 0px 10px 85px;
+}
+
+.commande-box{
+    margin:20px auto;
+    text-align:center;
+}
+
 input{
     padding:10px;
     border:none;
@@ -69,4 +78,12 @@ button{
     background:#adc178;
     font-family:'Geom',sans-serif;
     font-size:0.8em;
+    cursor:pointer;
+}
+
+.mail__error{
+    color:#ab110c;
+    text-align:left;
+    font-size:0.8em;
+    margin:0px 0px 10px 10px;
 }
