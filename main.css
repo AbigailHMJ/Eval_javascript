@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Geom:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    box-sizing:border-box;
+    font-family:'Arimo',sans-serif;
+}
+
+h1{
+    font-family:'Geom',sans-serif;
+    text-transform:uppercase;
+    color:#6c584c;
+    letter-spacing:1px;
+    text-align:center;
+    background:#f0ead2;
+    padding:5px;
+}
+
+h2{
+    font-family:'Geom',sans-serif;
+    color:#adc178;
+    text-decoration:underline #6c584c;
+}
+
+.grid-produits{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card-product{
+    background:#f0ead2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    font-family:'Geom',sans-serif;
+    text-align:center;
+    text-transform:uppercase;
+    font-size:1em;
+    background-color:#fff;
+    padding:5px;
+    margin-top:0px;
+    color:#adc178;
+}
+
+p{
+    text-align:right;
+    padding:10px;
+}
+
+input{
+    padding:10px;
+    border:none;
+    background:#f0ead2;
+    border-radius:10px;
+}
+
+button{
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    background:#adc178;
+    font-family:'Geom',sans-serif;
+    font-size:0.8em;
+}
