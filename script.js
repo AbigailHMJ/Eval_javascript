@@ -1,9 +1,9 @@
 // TABLEAU DE PRODUITS
 const produits = [
-    { id: 1, nom: "Thé Vert Bio", prix: 12.99, image: "https://placehold.co/150" },
-    { id: 2, nom: "Café Arabica", prix: 8.50, image: "https://placehold.co/150" },
-    { id: 3, nom: "Infusion Menthe", prix: 5.00, image: "https://placehold.co/150" },
-    { id: 4, nom: "Chocolat Chaud", prix: 15.00, image: "https://placehold.co/150" }
+    { id: 1, nom: "Thé Vert Bio", prix: 12.99, image: "https://placehold.co/150?text=Thé+Vert+Bio" },
+    { id: 2, nom: "Café Arabica", prix: 8.50, image: "https://placehold.co/150?text=Café+Arabica" },
+    { id: 3, nom: "Infusion Menthe", prix: 5.00, image: "https://placehold.co/150?text=Infusion+Menthe" },
+    { id: 4, nom: "Chocolat Chaud", prix: 15.00, image: "https://placehold.co/150?text=Chocolat+Chaud" }
 ];
 console.table(produits)
 
@@ -13,6 +13,9 @@ const panier = document.getElementById("panier-liste");
 const btnOrder = document.getElementById("btn-commander");
 const email = document.getElementById("email-client");
 const total = document.getElementById("montant-total");
+
+// TABLEAU DU PANIER DE PRODUITS
+const inCart = [];
 
 // AFFICHAGE DES MESSAGES D'ERREUR
 const emailError = document.getElementById("message-feedback");
@@ -66,6 +69,12 @@ function productDisplay(listeProduits) {
 };
 
 productDisplay(produits)
+
+// GESTION ET MISE A JOUR DU PANIER
+function ajoutPanier(event){
+const panier = event.currentTarget;
+
+}
 
 // EVENEMENTS SUR LE BOUTON DE COMMANDE
 btnOrder.addEventListener("click", function(event){
