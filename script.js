@@ -93,6 +93,7 @@ function productDisplay(listeProduits) {
 
 };
 
+// Appel de la fonction
 productDisplay(produits)
 
 
