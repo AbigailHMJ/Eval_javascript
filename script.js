@@ -14,11 +14,11 @@ const btnOrder = document.getElementById("btn-commander");
 const email = document.getElementById("email-client");
 const total = document.getElementById("montant-total");
 
-// TABLEAU DU PANIER DE PRODUITS
-const inCart = [];
-
 // AFFICHAGE DES MESSAGES D'ERREUR
 const emailError = document.getElementById("message-feedback");
+
+// LISTE DU PANIER DE PRODUITS
+const inCart = document.createElement("ul");
 
 // AFFICHAGE DES CARTES PRODUITS
 function productDisplay(listeProduits) {
@@ -29,9 +29,6 @@ function productDisplay(listeProduits) {
         // Création d'une carte
         const card = document.createElement("div");
         card.classList.add("card-product");
-
-        const spanId = document.createElement("span");
-        spanId.textContent = produit.id;
 
         // Création de l'image
         const img = document.createElement("img");
@@ -48,11 +45,32 @@ function productDisplay(listeProduits) {
         // Ajout d'un bouton pour ajouter le produit au panier
         const btnAdd = document.createElement("button");
         btnAdd.textContent = "Ajouter au panier";
-        btnAdd.classList.add("btn-add")
+        btnAdd.classList.add("btn-add");
+        // Ecouteur d'événement pour ajouter le produit au panier
+        btnAdd.addEventListener("click", () => {
+
+            const li = document.createElement("li");
+            li.textContent = produit.nom + " - " + produit.prix + "€";
+            const btnRemove = document.createElement("button");
+            btnRemove.textContent = "X";
+            btnRemove.classList.add("btn-remove");
+            btnRemove.addEventListener("click", () => {
+                li.remove();
+            });
+            li.appendChild(btnRemove);
+
+            inCart.appendChild(li);
+            panier.appendChild(inCart);
+
+            input.value = "";
+            // Mise à jour de la quantité pour ne pas avoir de doublon visuel
+            
+        });
 
         // Affichage du prix de chaque produit
         const price = document.createElement("p");
         price.textContent = produit.prix + "€";
+        price.classList.add("price-item");
 
         // Assemblage et affichage dans le DOM
         divText.appendChild(h3);
@@ -70,36 +88,35 @@ function productDisplay(listeProduits) {
 
 productDisplay(produits)
 
-// GESTION ET MISE A JOUR DU PANIER
-function ajoutPanier(event){
-const panier = event.currentTarget;
-
-}
+// MISE A JOUR DU TOTAL
+// function getTotal(panier){
+//     let {p}
+// }
 
 // EVENEMENTS SUR LE BOUTON DE COMMANDE
-btnOrder.addEventListener("click", function(event){
- let isValid = true;
- console.log(btnOrder)
+btnOrder.addEventListener("click", function (event) {
+    let isValid = true;
+    console.log(btnOrder)
 
-//  Réinitialisation des messages d'erreurs
-emailError.innerText = "";
+    //  Réinitialisation des messages d'erreurs
+    emailError.innerText = "";
 
-// Vérification mail avec regexp
-let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
-if (!email.value.match(emailPattern)){
-    emailError.innerText = "Veuillez entrer une adresse email valide.";
-    emailError.classList.add("mail__error");
-    isValid = false;
-}
+    // Vérification mail avec regexp
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+    if (!email.value.match(emailPattern)) {
+        emailError.innerText = "Merci de renseigner une adresse email valide";
+        emailError.classList.add("mail__error");
+        isValid = false;
+    }
 
-// Empêche la validation si un des champs est incorrectement rempli
-if (!isValid){
-    event.preventDefault();
-}
+    // Empêche la validation si un des champs est incorrectement rempli
+    if (!isValid) {
+        event.preventDefault();
+    }
 });
 
 // Ajoute la possibilité de valider l'input avec la touche entrée
-email.addEventListener("keypress", (e) =>{
-    if(e.key === "Enter") btnOrder.click()
+email.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") btnOrder.click()
 });
 

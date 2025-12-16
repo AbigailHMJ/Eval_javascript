@@ -1,43 +1,47 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html><!-- Début du document HTML -->
+<html lang="fr"><!-- Langue du document HTML -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier Malin - Évaluation JS</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css"><!-- Intégration du style CSS -->
 </head>
-<body>
+<!-- Début du corps de page -->
 
-    <header>
-        <h1>🛒 Panier Malin</h1>
+<body>
+    <header><!-- En-tête -->
+        <h1>🛒 Panier Malin</h1><!-- Titre principal de la page -->
     </header>
 
     <main class="container">
-        <section id="boutique">
+        <section id="boutique"><!-- Affichage des items de la boutique -->
             <h2>Nos Produits</h2>
             <div id="produits-container" class="grid-produits">
-                </div>
+            </div>
         </section>
 
-        <aside id="panier-section">
+        <aside id="panier-section"> <!-- Affichage du panier -->
             <h2>Votre Panier</h2>
-            
+
             <div id="panier-liste">
                 <p>Votre panier est vide.</p>
-                </div>
+            </div>
 
-            <div class="total-section">
+            <div class="total-section"><!-- Affiche le montant total du panier -->
                 <h3>Total : <span id="montant-total">0.00</span> €</h3>
             </div>
 
-            <div class="commande-box">
+            <div class="commande-box"> <!-- Section permettant de passer la commande -->
                 <h3>Finaliser la commande</h3>
-                <div id="message-feedback"></div> <input type="email" id="email-client" placeholder="Votre email (ex: jean@mail.com)">
+                <div id="message-feedback"></div> <input type="email" id="email-client"
+                    placeholder="Votre email (ex: jean@mail.com)">
                 <button id="btn-commander">Passer la commande</button>
             </div>
         </aside>
     </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="script.js"></script><!-- Intégration du script JavaScript -->
+</body><!-- Fin du corps de page -->
+
+</html><!-- Fin du document HTML -->
