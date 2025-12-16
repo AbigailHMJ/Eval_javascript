@@ -10,7 +10,7 @@ console.table(produits)
 // DEFINITION DES VARIABLES
 const products = document.getElementById("produits-container");
 const panier = document.getElementById("panier-liste");
-const msgPanier = document.getElementsByTagName("p")
+const msgPanier = panier.getElementsByTagName("p")
 const btnOrder = document.getElementById("btn-commander");
 const email = document.getElementById("email-client");
 const total = document.getElementById("montant-total");
@@ -66,11 +66,11 @@ function productDisplay(listeProduits) {
             input.value = "";
 
             // Mise à jour de la quantité pour ne pas avoir de doublon visuel
-          btnAdd.forEach(produit => {
-
-          })
+            // Pas réussi
+          
 
             // Mise à jour du total
+            // Pas réussi non plus
 
         });
 
@@ -113,9 +113,9 @@ btnOrder.addEventListener("click", function (event) {
         isValid = false;
     }
 
-    // Vérification de la présence d'au moins 1 item dans le panier
-    if (!panier.value < 1) {
-        msgPanier.innerText = "Merci de choisir au moins un produit";
+    // Vérification de la présence d'au moins 1 item dans le panier | ne fonctionne pas, à revoir
+    if (!inCart.value < 1) {
+        msgPanier.textContent = "Merci de choisir au moins un produit";
         isValid = false;
     }
 
