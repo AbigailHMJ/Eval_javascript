@@ -1,24 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Geom:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Geom:ital,wght@0,300..900;1,300..900&family=Prata&display=swap');
 
 *{
     box-sizing:border-box;
     font-family:'Arimo',sans-serif;
 }
 
+body{
+    background: #edf4ed;
+}
+
 h1{
-    font-family:'Geom',sans-serif;
+    font-family:'Prata',serif;
     text-transform:uppercase;
-    color:#6c584c;
+    color:#301014;
     letter-spacing:1px;
     text-align:center;
-    background:#f0ead2;
+    background:#abd1b5;
     padding:5px;
 }
 
 h2{
-    font-family:'Geom',sans-serif;
-    color:#adc178;
-    text-decoration:underline #6c584c;
+    font-family:'Prata', serif;
+    color:#79b791;
+    text-decoration:underline #51291e;
+    text-align:left;
+    margin-left:20px;
+}
+
+h2::before{
+    content: "• "
 }
 
 .grid-produits{
@@ -30,33 +40,37 @@ h2{
 }
 
 .card-product{
-    background:#f0ead2;
+    background:#abd1b5;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    text-align:center;
+    border-bottom:solid 5px #301014;
 }
 
 h3{
-    font-family:'Geom',sans-serif;
+    font-family:'Prata', serif;
     text-align:center;
     text-transform:uppercase;
     font-size:1em;
-    background-color:#fff;
+    background-color:#79b791;
     padding:5px;
     margin-top:0px;
-    color:#adc178;
+    color:#301014;
 }
 
 .price-item{
     text-align:right;
     padding:10px;
+    display:block;
+    font-family:'Geom',sans-serif;
 }
 
 .btn-add{
-    margin:0px 0px 10px 85px;
+    margin:0px 0px 10px 0px;
 }
 
 ul{
@@ -65,25 +79,26 @@ ul{
 
 .btn-remove{
     background:transparent;
-    font-family:'Geom',sans-serif;
-    font-weight:bold;
     font-size:1em;
     text-align:center;
     border:none;
-    color:#6c584c;
     margin:0px 0px 0px 20px;
     padding:5px;
 }
 
+span{
+    font-family:'Prata',serif;
+}
+
 .commande-box{
-    margin:20px auto;
+    margin:10px 0px 40px 0px;
     text-align:center;
 }
 
 input{
     padding:10px;
-    border:none;
-    background:#f0ead2;
+    border:solid 1px #301014;
+    background:#edf4ed;
     border-radius:10px;
 }
 
@@ -91,10 +106,11 @@ button{
     padding:10px;
     border-radius:10px;
     border:none;
-    background:#adc178;
+    background:#51291e;
     font-family:'Geom',sans-serif;
     font-size:0.8em;
     cursor:pointer;
+    color:#edf4ed
 }
 
 .mail__error{

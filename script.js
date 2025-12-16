@@ -10,6 +10,7 @@ console.table(produits)
 // DEFINITION DES VARIABLES
 const products = document.getElementById("produits-container");
 const panier = document.getElementById("panier-liste");
+const msgPanier = document.getElementsByTagName("p")
 const btnOrder = document.getElementById("btn-commander");
 const email = document.getElementById("email-client");
 const total = document.getElementById("montant-total");
@@ -52,7 +53,7 @@ function productDisplay(listeProduits) {
             const li = document.createElement("li");
             li.textContent = produit.nom + " - " + produit.prix + "€";
             const btnRemove = document.createElement("button");
-            btnRemove.textContent = "X";
+            btnRemove.textContent = "❌";
             btnRemove.classList.add("btn-remove");
             btnRemove.addEventListener("click", () => {
                 li.remove();
@@ -63,12 +64,18 @@ function productDisplay(listeProduits) {
             panier.appendChild(inCart);
 
             input.value = "";
+
             // Mise à jour de la quantité pour ne pas avoir de doublon visuel
-            
+          btnAdd.forEach(produit => {
+
+          })
+
+            // Mise à jour du total
+
         });
 
         // Affichage du prix de chaque produit
-        const price = document.createElement("p");
+        const price = document.createElement("span");
         price.textContent = produit.prix + "€";
         price.classList.add("price-item");
 
@@ -88,10 +95,6 @@ function productDisplay(listeProduits) {
 
 productDisplay(produits)
 
-// MISE A JOUR DU TOTAL
-// function getTotal(panier){
-//     let {p}
-// }
 
 // EVENEMENTS SUR LE BOUTON DE COMMANDE
 btnOrder.addEventListener("click", function (event) {
@@ -100,12 +103,19 @@ btnOrder.addEventListener("click", function (event) {
 
     //  Réinitialisation des messages d'erreurs
     emailError.innerText = "";
+    msgPanier.innerText = "";
 
     // Vérification mail avec regexp
     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
     if (!email.value.match(emailPattern)) {
         emailError.innerText = "Merci de renseigner une adresse email valide";
         emailError.classList.add("mail__error");
+        isValid = false;
+    }
+
+    // Vérification de la présence d'au moins 1 item dans le panier
+    if (!panier.value < 1) {
+        msgPanier.innerText = "Merci de choisir au moins un produit";
         isValid = false;
     }
 
